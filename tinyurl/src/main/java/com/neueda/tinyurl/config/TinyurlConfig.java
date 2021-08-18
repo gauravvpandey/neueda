@@ -1,5 +1,6 @@
-package com.neueda.tinyurl.redis;
+package com.neueda.tinyurl.config;
 
+import org.apache.commons.validator.routines.UrlValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.neueda.tinyurl.model.DomainUrl;
 
 @Configuration
-public class RedisConfig {
+public class TinyurlConfig {
 
   @Autowired
   ObjectMapper mapper;
@@ -29,5 +30,11 @@ public class RedisConfig {
     redisTemplate.setKeySerializer(new StringRedisSerializer());
     redisTemplate.setValueSerializer(valueSerializer);
     return redisTemplate;
+  }
+  
+  @Bean
+  UrlValidator urlValidator() {
+	  final String [] schemes = {"http","https"};
+	  return new UrlValidator(schemes);
   }
 }
