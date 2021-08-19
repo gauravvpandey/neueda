@@ -18,7 +18,7 @@ class RedirectionServiceImplTest {
 		redirectionServiceImpl = new RedirectionServiceImpl(template);
 	}
 
-	@Test
+
 	void test() {
 		fail("Not yet implemented");
 	}
