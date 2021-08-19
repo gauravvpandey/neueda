@@ -19,16 +19,12 @@ public class UrlRequestValidator implements Validator<UrlRequest> {
 	}
 
 	@Override
-	public boolean validate(final UrlRequest request) {
+	public void validate(final UrlRequest request) {
 		if (request == null || !urlValidator.isValid(request.getNormalUrl())) {
 			log.info("Validation failed: {}, UrlRequest: {}",
 					UrlRequestValidator.class.getSimpleName(), request);
 			throw new ValidationFailedException(HttpStatus.BAD_REQUEST, Constants.INVALID_URL);
 		}
-		
-		
-		
-		return true;
 	}
 
 }

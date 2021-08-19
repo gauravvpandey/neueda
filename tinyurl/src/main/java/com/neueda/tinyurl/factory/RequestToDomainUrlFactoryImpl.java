@@ -1,4 +1,4 @@
-package com.neueda.tinyurl.config;
+package com.neueda.tinyurl.factory;
 
 import java.time.LocalDateTime;
 

@@ -10,6 +10,8 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.neueda.tinyurl.factory.RequestToDomainUrlFactory;
+import com.neueda.tinyurl.factory.RequestToDomainUrlFactoryImpl;
 import com.neueda.tinyurl.model.DomainUrl;
 import com.neueda.tinyurl.model.UrlRequest;
 import com.neueda.tinyurl.validation.UrlRequestValidator;
@@ -19,10 +21,10 @@ import com.neueda.tinyurl.validation.Validator;
 public class TinyurlConfig {
 
   @Autowired
-  ObjectMapper mapper;
+  private ObjectMapper mapper;
 
   @Autowired
-  RedisConnectionFactory connectionFactory;
+  private RedisConnectionFactory connectionFactory;
 
   @Bean
   RedisTemplate<String, DomainUrl> redisTemplate() {

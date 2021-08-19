@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.neueda.tinyurl.config.RequestToDomainUrlFactory;
+import com.neueda.tinyurl.factory.RequestToDomainUrlFactory;
 import com.neueda.tinyurl.model.UrlRequest;
 import com.neueda.tinyurl.service.RedirectionService;
 import com.neueda.tinyurl.service.UrlService;
