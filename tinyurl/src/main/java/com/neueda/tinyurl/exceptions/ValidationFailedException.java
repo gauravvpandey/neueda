@@ -2,11 +2,6 @@ package com.neueda.tinyurl.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-/**
- * 
- * @author Anubhav.Anand
- *
- */
 public class ValidationFailedException extends RuntimeException{
 
 	private static final long serialVersionUID = 1881378939117780703L;

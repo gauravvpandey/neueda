@@ -11,6 +11,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.neueda.tinyurl.model.DomainUrl;
+import com.neueda.tinyurl.model.UrlRequest;
+import com.neueda.tinyurl.validation.UrlRequestValidator;
+import com.neueda.tinyurl.validation.Validator;
 
 @Configuration
 public class TinyurlConfig {
@@ -37,4 +40,15 @@ public class TinyurlConfig {
 	  final String [] schemes = {"http","https"};
 	  return new UrlValidator(schemes);
   }
+  
+  @Bean
+  Validator<UrlRequest> getValidator(UrlValidator urlValidator) {
+	  return new UrlRequestValidator(urlValidator);
+  }
+  
+  @Bean
+  RequestToDomainUrlFactory getFactory() {
+	  return new RequestToDomainUrlFactoryImpl();
+  }
+  
 }

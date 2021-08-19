@@ -28,5 +28,10 @@ public class DomainUrl {
 	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
+	
+	@Override
+	public String toString() {
+		return "DomainUrl [normalUrl=" + normalUrl + ", user=" + user + ", dateTime=" + dateTime + "]";
+	}
 
 }

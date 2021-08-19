@@ -1,9 +1,6 @@
 package com.neueda.tinyurl.controller;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,12 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.neueda.tinyurl.config.RequestToDomainUrlFactory;
-import com.neueda.tinyurl.exceptions.ValidationFailedException;
-import com.neueda.tinyurl.model.DomainUrl;
 import com.neueda.tinyurl.model.UrlRequest;
 import com.neueda.tinyurl.service.RedirectionService;
 import com.neueda.tinyurl.service.UrlService;
-import com.neueda.tinyurl.utils.Constants;
 import com.neueda.tinyurl.validation.Validator;
 
 @RestController
@@ -52,7 +46,6 @@ public class UrlController {
 	
 	@GetMapping("/{id}")
 	public RedirectView redirect(@PathVariable String id) {
-		//validate URL
 		return redirectionService.redirect(id);
 	}
 
