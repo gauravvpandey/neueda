@@ -13,6 +13,7 @@ import com.neueda.tinyurl.factory.RequestToDomainUrlFactory;
 import com.neueda.tinyurl.model.UrlRequest;
 import com.neueda.tinyurl.service.RedirectionService;
 import com.neueda.tinyurl.service.UrlService;
+import com.neueda.tinyurl.utils.Constants;
 import com.neueda.tinyurl.validation.Validator;
 
 @RestController
@@ -41,12 +42,13 @@ public class UrlController {
 	@PostMapping("/create")
 	public String createTinyurl(@RequestBody UrlRequest url) {
 		validator.validate(url);
-		return urlService.createTinyurl(factory.create(url));
+		String tinyurl = urlService.createTinyurl(factory.create(url));
+		return Constants.TINY_URL+tinyurl;
 	}
 	
 	@GetMapping("/{id}")
 	public RedirectView redirect(@PathVariable String id) {
 		return redirectionService.redirect(id);
 	}
-
+	
 }

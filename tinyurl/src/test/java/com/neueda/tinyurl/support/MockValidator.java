@@ -12,9 +12,10 @@ public class MockValidator implements Validator<UrlRequest>{
 	public boolean valid;
 
 	@Override
-	public void validate(UrlRequest entity) {
+	public boolean validate(UrlRequest entity) {
 		if(!valid)
 			throw new ValidationFailedException(HttpStatus.BAD_REQUEST, Constants.INVALID_URL);
+		return valid;
 	}
 
 }

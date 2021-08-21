@@ -26,7 +26,7 @@ class UrlControllerTest {
 	private RequestToDomainUrlFactory factory;
 
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp(){
 		urlService = new MockUrlService();
 		redirectionService = new MockRedirectionService();
 		validator = new MockValidator();
@@ -50,7 +50,7 @@ class UrlControllerTest {
 		validator.valid = true;
 		urlService.tinyUrl = "hgfusdhf";
 		UrlRequest urlRequest = new UrlRequest("https://gaurav.com", "gaurav");
-		assertEquals(urlService.tinyUrl, urlController.createTinyurl(urlRequest));
+		assertEquals(Constants.TINY_URL+urlService.tinyUrl, urlController.createTinyurl(urlRequest));
 	}
 
 	@Test

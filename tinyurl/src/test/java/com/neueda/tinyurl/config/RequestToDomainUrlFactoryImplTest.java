@@ -18,7 +18,7 @@ class RequestToDomainUrlFactoryImplTest {
 	private RequestToDomainUrlFactoryImpl domainUrlFactoryImpl;
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	void setUp() {
 		domainUrlFactoryImpl = new RequestToDomainUrlFactoryImpl();
 	}
 

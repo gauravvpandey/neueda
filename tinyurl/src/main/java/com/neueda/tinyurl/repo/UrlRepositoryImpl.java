@@ -1,0 +1,28 @@
+package com.neueda.tinyurl.repo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.neueda.tinyurl.model.DomainUrl;
+
+@Repository
+public class UrlRepositoryImpl implements UrlRepository{
+	
+	private RedisTemplate<String, DomainUrl> redisTemplate;
+	
+	@Autowired
+	public UrlRepositoryImpl(final RedisTemplate<String, DomainUrl> redisTemplate) {
+		this.redisTemplate = redisTemplate;
+	}
+	
+	@Override
+	public void save(String tinyUrl, DomainUrl url) {
+		redisTemplate.opsForValue().set(tinyUrl, url);
+	}
+	
+	@Override
+	public DomainUrl findByTinyurl(String tinyUrl) {
+		return redisTemplate.opsForValue().get(tinyUrl);
+	}
+}

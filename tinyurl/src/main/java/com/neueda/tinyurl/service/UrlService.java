@@ -6,6 +6,4 @@ public interface UrlService {
 
 	String createTinyurl(DomainUrl normalUrl);
 
-	String getNormalUrl(String tinyUrl);
-
 }
