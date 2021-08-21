@@ -5,6 +5,6 @@ import com.neueda.tinyurl.model.UrlRequest;
 
 public interface RequestToDomainUrlFactory {
 
-	DomainUrl create(UrlRequest request);
+	DomainUrl create(final UrlRequest request);
 
 }

@@ -26,7 +26,7 @@ public class UrlController {
 
 	private final Validator<UrlRequest> validator;
 
-	private RequestToDomainUrlFactory factory;
+	private final RequestToDomainUrlFactory factory;
 	
 	@Autowired
 	public UrlController(final UrlService urlService, 
@@ -40,14 +40,14 @@ public class UrlController {
 	}
 	
 	@PostMapping("/create")
-	public String createTinyurl(@RequestBody UrlRequest url) {
+	public String createTinyurl(@RequestBody final UrlRequest url) {
 		validator.validate(url);
 		String tinyurl = urlService.createTinyurl(factory.create(url));
 		return Constants.TINY_URL+tinyurl;
 	}
 	
 	@GetMapping("/{id}")
-	public RedirectView redirect(@PathVariable String id) {
+	public RedirectView redirect(@PathVariable final String id) {
 		return redirectionService.redirect(id);
 	}
 	

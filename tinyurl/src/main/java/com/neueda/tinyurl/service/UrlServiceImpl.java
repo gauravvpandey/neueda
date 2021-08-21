@@ -12,15 +12,15 @@ import com.neueda.tinyurl.repo.UrlRepository;
 @Service
 public class UrlServiceImpl implements UrlService {
 	
-	private UrlRepository repo;
+	private final UrlRepository repo;
 	
 	@Autowired
-	public UrlServiceImpl(UrlRepository repo) {
+	public UrlServiceImpl(final UrlRepository repo) {
 		this.repo = repo;
 	}
 	
 	
-	public String createTinyurl(DomainUrl url) {
+	public String createTinyurl(final DomainUrl url) {
 		final String tinyUrl = Hashing.murmur3_32().hashString(url.getNormalUrl(), Charset.defaultCharset()).toString();
 		repo.save(tinyUrl, url);
 		return tinyUrl;

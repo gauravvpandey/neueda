@@ -19,7 +19,7 @@ public class ExceptionHandlerImpl {
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> handleException(final Exception exception) {
-		log.error("Unhandled exception has occured: {}", exception.getMessage());
+		log.error("Unhandled exception: {}", exception.getMessage());
 		return new ResponseEntity<String>(exception.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
 	}
 

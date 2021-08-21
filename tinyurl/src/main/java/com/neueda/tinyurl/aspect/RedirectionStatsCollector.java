@@ -12,19 +12,19 @@ import com.neueda.tinyurl.utils.Constants;
 
 @Aspect
 @Component
-public class RedirectionServiceAspect {
+public class RedirectionStatsCollector {
 	
-	private StatisticsRepository repo;
+	private final StatisticsRepository repo;
 
 	@Autowired
-	public RedirectionServiceAspect(StatisticsRepository repo) {
+	public RedirectionStatsCollector(final StatisticsRepository repo) {
 		this.repo = repo;
 	}
 	
 	@AfterReturning(
 			value = "execution(* com.neueda.tinyurl.service.RedirectionService.*(..)) and args(tinyUrl)", 
 			returning = "redirectView")
-	public void afterCreateTinyurl(JoinPoint joinPoint, String tinyUrl, RedirectView redirectView) {
+	public void afterCreateTinyurl(final JoinPoint joinPoint, final String tinyUrl, final RedirectView redirectView) {
 		repo.tinyUrlRedirectionStatistics(Constants.TINY_URL+tinyUrl); 
 	}
 

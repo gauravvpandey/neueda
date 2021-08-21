@@ -12,9 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UrlRequestValidator implements Validator<UrlRequest> {
 
-	private UrlValidator urlValidator;
+	private final UrlValidator urlValidator;
 
-	public UrlRequestValidator(UrlValidator urlValidator) {
+	public UrlRequestValidator(final UrlValidator urlValidator) {
 		this.urlValidator = urlValidator;
 	}
 

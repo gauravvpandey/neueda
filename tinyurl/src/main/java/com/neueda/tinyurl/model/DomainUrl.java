@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 public class DomainUrl {
 	
-	private String normalUrl;
+	private final String normalUrl;
 	
-	private String user;
+	private final String user;
 	
-	private LocalDateTime dateTime;
+	private final LocalDateTime dateTime;
 	
-	public DomainUrl(String normalUrl, String user, LocalDateTime dateTime) {
+	public DomainUrl(final String normalUrl, final String user, final LocalDateTime dateTime) {
 		super();
 		this.normalUrl = normalUrl;
 		this.user = user;

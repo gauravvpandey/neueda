@@ -13,14 +13,14 @@ import com.neueda.tinyurl.utils.Constants;
 @Service
 public class RedirectionServiceImpl implements RedirectionService{
 	
-	private UrlRepository repo;
+	private final UrlRepository repo;
 	
 	@Autowired
-	public RedirectionServiceImpl(UrlRepository repo) {
+	public RedirectionServiceImpl(final UrlRepository repo) {
 		this.repo = repo;
 	}
 	
-	public RedirectView redirect(String tinyUrl) {
+	public RedirectView redirect(final String tinyUrl) {
 		final DomainUrl domainUrl = repo.findByTinyurl(tinyUrl);
 		if(domainUrl == null) {
 			throw new ValidationFailedException(HttpStatus.BAD_REQUEST, Constants.NOT_FOUND);

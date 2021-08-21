@@ -11,19 +11,19 @@ import com.neueda.tinyurl.repo.StatisticsRepository;
 
 @Aspect
 @Component
-public class UrlServiceAspect {
+public class UserStatsCollector {
 	
-	private StatisticsRepository repo;
+	private final StatisticsRepository repo;
 
 	@Autowired
-	public UrlServiceAspect(StatisticsRepository repo) {
+	public UserStatsCollector(final StatisticsRepository repo) {
 		this.repo = repo;
 	}
 	
 	@AfterReturning(
 			value = "execution(* com.neueda.tinyurl.service.UrlService.*(..)) and args(url)", 
 			returning = "tinyUrl")
-	public void afterCreateTinyurl(JoinPoint joinPoint, DomainUrl url, String tinyUrl) {
+	public void afterCreateTinyurl(final JoinPoint joinPoint, final DomainUrl url, final String tinyUrl) {
 		repo.userRequestStatistics(url.getUser()); 
 	}
 

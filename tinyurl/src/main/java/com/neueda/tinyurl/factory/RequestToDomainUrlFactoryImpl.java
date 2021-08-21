@@ -7,7 +7,7 @@ import com.neueda.tinyurl.model.UrlRequest;
 
 public class RequestToDomainUrlFactoryImpl implements RequestToDomainUrlFactory{
 	
-	public DomainUrl create(UrlRequest request) {
+	public DomainUrl create(final UrlRequest request) {
 		return new DomainUrl(request.getNormalUrl(), request.getUser(), LocalDateTime.now());
 	}
 

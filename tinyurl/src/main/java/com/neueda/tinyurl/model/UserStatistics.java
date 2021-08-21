@@ -2,11 +2,11 @@ package com.neueda.tinyurl.model;
 
 public class UserStatistics {
 	
-	private String user;
+	private final String user;
 	
-	private Integer count;
+	private final Integer count;
 	
-	public UserStatistics(String user, Integer count) {
+	public UserStatistics(final String user, final Integer count) {
 		super();
 		this.user = user;
 		this.count = count;

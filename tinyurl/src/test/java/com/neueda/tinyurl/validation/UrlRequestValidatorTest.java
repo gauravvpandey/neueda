@@ -26,13 +26,13 @@ class UrlRequestValidatorTest {
 	@Test
 	void testValidateValidURL_HTTP() {
 		UrlRequest request = new UrlRequest("http://gauravlabs.com", "gaurav");
-		assertEquals(validator.validate(request), true);
+		assertTrue(validator.validate(request));
 	}
 	
 	@Test
 	void testValidateValidURL_HTTPS() {
 		UrlRequest request = new UrlRequest("https://gauravlabs.com", "gaurav");
-		assertEquals(validator.validate(request), true);
+		assertTrue(validator.validate(request));
 	}
 	
 	@Test

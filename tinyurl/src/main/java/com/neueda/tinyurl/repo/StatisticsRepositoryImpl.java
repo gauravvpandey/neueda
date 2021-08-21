@@ -20,7 +20,7 @@ public class StatisticsRepositoryImpl implements StatisticsRepository{
 	}
 	
 	@Override
-	public void userRequestStatistics(String user) {
+	public void userRequestStatistics(final String user) {
 		final HashOperations<String, String, Integer> hashOperations = redisTemplate.opsForHash();
 		if(!hashOperations.putIfAbsent(USER_REQUEST_STATS, user, 1)) {
 			hashOperations.increment(USER_REQUEST_STATS, user, 1);
@@ -28,7 +28,7 @@ public class StatisticsRepositoryImpl implements StatisticsRepository{
 	}
 	
 	@Override
-	public void tinyUrlRedirectionStatistics(String tinyUrl) {
+	public void tinyUrlRedirectionStatistics(final String tinyUrl) {
 		final HashOperations<String, String, Integer> hashOperations = redisTemplate.opsForHash();
 		if(!hashOperations.putIfAbsent(TINY_URL_REDIRECTION_STATS, tinyUrl, 1)) {
 			hashOperations.increment(TINY_URL_REDIRECTION_STATS, tinyUrl, 1);

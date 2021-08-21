@@ -2,15 +2,15 @@ package com.neueda.tinyurl.model;
 
 public class UrlRequest {
 	
-	public UrlRequest(String normalUrl, String user) {
+	public UrlRequest(final String normalUrl, final String user) {
 		super();
 		this.normalUrl = normalUrl;
 		this.user = user;
 	} 
 
-	private String normalUrl;
+	private final String normalUrl;
 	
-	private String user;
+	private final String user;
 
 	public String getNormalUrl() {
 		return normalUrl;

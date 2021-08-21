@@ -1,22 +1,25 @@
 package com.neueda.tinyurl.service;
 
-import org.springframework.data.redis.core.RedisTemplate;
+import java.util.Map;
 
-import com.neueda.tinyurl.model.DomainUrl;
+import com.neueda.tinyurl.repo.StatisticsRepository;
 
 public class StatisticsServiceImpl implements StatisticsService{
 	
-	private RedisTemplate<String, DomainUrl> redisTemplate;
+	private final StatisticsRepository statisticsRepository;
 	
-	public StatisticsServiceImpl(RedisTemplate<String, DomainUrl> redisTemplate) {
-		this.redisTemplate = redisTemplate;
+	public StatisticsServiceImpl(final StatisticsRepository statisticsRepository) {
+		this.statisticsRepository = statisticsRepository;
 	}
 	
-	public void userStats() {
-		//redisTemplate.opsForValue().getOperations().
+	@Override
+	public Map<String, Integer> getUserRequestStatistics() {
+		return statisticsRepository.getUserRequestStatistics();
 	}
-	
-	
-	//re direction per tiny url
+
+	@Override
+	public Map<String, Integer> getTinyUrlRedirectionStatistics() {
+		return statisticsRepository.getTinyUrlRedirectionStatistics();
+	}
 
 }
