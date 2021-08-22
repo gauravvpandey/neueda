@@ -2,6 +2,7 @@ package com.neueda.tinyurl.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ public class StatisticsController {
 	
 	private final StatisticsService statisticsService;
 
+	@Autowired
 	public StatisticsController(final StatisticsService statisticsService) {
 		this.statisticsService = statisticsService;
 	}
