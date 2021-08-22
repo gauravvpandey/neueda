@@ -1,4 +1,4 @@
-# neueda
+# Neueda Home Assignment
 
 The project is created using jdk 8.
 
