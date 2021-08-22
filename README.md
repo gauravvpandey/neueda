@@ -9,9 +9,9 @@ a) Build all the services.
 b) Use docker-compose to build images using project's dockerfile and bring the corresponding services up in individual containers.
 
 
-**Tinyurl service:**
+**Tinyurl Service:** 
 
-Tinyurl: This service provides following end-points
+This service provides following end-points
 
 a) Create Tinyurl [POST] -> http://localhost:9001/tinyurl/create
 	
