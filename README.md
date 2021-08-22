@@ -5,6 +5,7 @@ The project is created using jdk 8.
 install.ps1 -> Run this script in power shell. This will do the following
 
 a) build all the services.
+
 b) use docker-compose to build images using project's dockerfile and bring the corresponding services up in individual containers.
 
 
