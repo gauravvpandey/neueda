@@ -14,6 +14,8 @@ import com.neueda.tinyurl.factory.RequestToDomainUrlFactory;
 import com.neueda.tinyurl.factory.RequestToDomainUrlFactoryImpl;
 import com.neueda.tinyurl.model.DomainUrl;
 import com.neueda.tinyurl.model.UrlRequest;
+import com.neueda.tinyurl.utils.HashingStrategy;
+import com.neueda.tinyurl.utils.Murmur32HashingStrategy;
 import com.neueda.tinyurl.validation.UrlRequestValidator;
 import com.neueda.tinyurl.validation.Validator;
 
@@ -67,8 +69,13 @@ public class TinyurlConfig {
 	}
 
 	@Bean
-	RequestToDomainUrlFactory getFactory() {
+	public RequestToDomainUrlFactory getFactory() {
 		return new RequestToDomainUrlFactoryImpl();
+	}
+
+	@Bean
+	public HashingStrategy getHashingStrategy() {
+		return new Murmur32HashingStrategy();
 	}
 
 }
